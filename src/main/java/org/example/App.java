@@ -25,8 +25,6 @@ public class App
         Logistics logistics = context.getBean(Logistics.class);
 
 
-
-
         System.out.println(tf);
         System.out.println(logistics);
 
