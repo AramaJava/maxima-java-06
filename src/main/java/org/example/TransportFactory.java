@@ -1,8 +1,6 @@
 package org.example;
 
-import org.springframework.stereotype.Component;
 
-@Component
 public class TransportFactory {
     static final String SHIP_NAME = "Теплоход Светлый";
     static final float SHIP_PRICE = 2.32f;
