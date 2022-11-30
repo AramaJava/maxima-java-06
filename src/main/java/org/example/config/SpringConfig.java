@@ -1,5 +1,9 @@
-package org.example;
+package org.example.config;
 
+import org.example.model.City;
+import org.example.model.transport.Transport;
+import org.example.services.Logistics;
+import org.example.services.TransportFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -7,12 +11,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan(basePackages = "org.example")
 public class SpringConfig {
-
-    @Bean
-    public Sphynx sphynx() {
-        return new Sphynx();
-    }
-
 
     @Bean
     public TransportFactory transportFactory() {

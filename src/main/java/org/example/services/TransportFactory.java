@@ -1,4 +1,11 @@
-package org.example;
+package org.example.services;
+
+
+import org.example.model.City;
+import org.example.model.transport.Plane;
+import org.example.model.transport.Ship;
+import org.example.model.transport.Transport;
+import org.example.model.transport.Truck;
 
 
 public class TransportFactory {
@@ -23,7 +30,7 @@ public class TransportFactory {
 
     public static Transport getTransport(City city, int weight, int hours) {
         int getSpeed = city.getDistanceKm() / hours;
-        int setSpeed = roundUp(getSpeed,10);
+        int setSpeed = roundUp(getSpeed, 10);
         int setCapacity = roundUp(weight, 500);
 
         if (getSpeed < 40 && city.isOnWater()) return new Ship(SHIP_NAME, setCapacity, setSpeed, SHIP_PRICE);

@@ -1,6 +1,9 @@
-package org.example;
+package org.example.model.transport;
 
-abstract class Transport implements Repairable{
+import org.example.model.City;
+import org.example.services.Repairable;
+
+public abstract class Transport implements Repairable {
     private String name;
     private int capacity;
     private int speed;
@@ -20,7 +23,11 @@ abstract class Transport implements Repairable{
 
     }
 
-    public String getName() {return name;};
+    public String getName() {
+        return name;
+    }
+
+    ;
 
     public void setName(String name) {
         this.name = name;

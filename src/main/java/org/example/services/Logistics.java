@@ -1,16 +1,32 @@
-package org.example;
+package org.example.services;
 
+
+import org.example.model.City;
+import org.example.model.transport.Transport;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+/*
+  Модифицировать класс Logistics так,
+          чтобы при отсутствии доступных транспортов фабрикой
+          создавался бы новый транспорт.
+*/
 
 @Component
 public class Logistics {
 
     private final Transport[] vehicles;
-
+    private TransportFactory transportFactory;
+    
     public Logistics(Transport... vehicles) {
         this.vehicles = vehicles;
     }
 
+    @Autowired
+    public Logistics(TransportFactory transportFactory, Transport... transports) {
+        vehicles = transports;
+        this.transportFactory = transportFactory;
+    }
 
     public Transport getShipping(City city, int weight, int hours) {
         Transport minCostTransport = null;
@@ -22,6 +38,9 @@ public class Logistics {
                     minCostTransport = vehicle;
                 }
             }
+        }
+        if (minCostTransport == null) {
+            minCostTransport = transportFactory.getTransport(city, weight, hours);
         }
         return minCostTransport;
     }

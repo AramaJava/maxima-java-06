@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 public class City {
     private String name;
     private int distanceKm;
