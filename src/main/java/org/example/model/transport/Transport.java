@@ -27,8 +27,6 @@ public abstract class Transport implements Repairable {
         return name;
     }
 
-    ;
-
     public void setName(String name) {
         this.name = name;
     }
